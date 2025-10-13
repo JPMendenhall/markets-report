@@ -2,9 +2,8 @@ name: Daily Markets Report
 
 on:
   schedule:
-    # Runs at 11:00 AM UTC = 6:00 AM ET (winter) / 7:00 AM ET (summer)
     - cron: '0 11 * * *'
-  workflow_dispatch:  # Allows manual trigger for testing
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,6 +27,30 @@ jobs:
     - name: Install dependencies
       run: uv pip install --system openai python-dotenv yfinance pycoingecko requests jinja2 markdown
       
+    - name: Debug file structure
+      working-directory: ./src
+      run: |
+        echo "=== Working directory ==="
+        pwd
+        echo ""
+        echo "=== Files in current directory ==="
+        ls -la
+        echo ""
+        echo "=== Check templates folder ==="
+        if [ -d "templates" ]; then
+          echo "templates/ exists!"
+          ls -la templates/
+        else
+          echo "templates/ NOT FOUND"
+        fi
+        echo ""
+        echo "=== Check for template file ==="
+        if [ -f "templates/daily_report.html" ]; then
+          echo "daily_report.html EXISTS"
+        else
+          echo "daily_report.html NOT FOUND"
+        fi
+      
     - name: Generate report
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -38,15 +61,8 @@ jobs:
     
     - name: Check what was generated
       run: |
-        echo "=== Current directory ==="
-        pwd
-        echo ""
-        echo "=== Source directory ==="
-        ls -la src/
-        echo ""
         echo "=== Reports directory ==="
         if [ -d "src/reports" ]; then
-          echo "Found src/reports/"
           ls -la src/reports/
         else
           echo "src/reports/ does not exist!"
