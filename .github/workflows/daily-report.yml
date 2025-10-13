@@ -1,0 +1,40 @@
+name: Daily Markets Report
+
+on:
+  schedule:
+    # Runs at 11:00 AM UTC = 6:00 AM ET (adjust for your timezone)
+    - cron: '0 11 * * *'
+  workflow_dispatch:  # Allows manual trigger for testing
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        
+    - name: Install uv
+      run: pip install uv
+        
+    - name: Install dependencies
+      run: uv pip install --system openai python-dotenv yfinance pycoingecko requests jinja2 markdown
+      
+    - name: Generate report
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
+        ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
+      run: python main.py
+      
+    - name: Commit and push report
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add reports/
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Daily report $(date +'%Y-%m-%d')" && git push)
