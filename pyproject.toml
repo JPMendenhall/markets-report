@@ -1,0 +1,15 @@
+[project]
+name = "markets-report"
+version = "0.1.0"
+description = "Daily AI analysis of TradFi and Crypto markets"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "openai>=2.3.0",
+    "python-dotenv>=1.1.1",
+    "yfinance>=0.2.48",
+    "requests>=2.31.0",
+    "pycoingecko>=3.1.0",
+    "jinja2>=3.1.0",
+    "markdown>=3.5.0",
+]
