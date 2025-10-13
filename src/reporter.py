@@ -38,12 +38,12 @@ def generate_html_report(report_data):
         analysis_html=analysis_html
     )
     
-    # Save to file
-    filename = timestamp.strftime('%Y-%m-%d') + '.html'
-    filepath = os.path.join('data', 'archive', filename)
+    # Save to reports/ with correct filename format
+    filename = timestamp.strftime('report_%Y%m%d.html')  # ← Changed format
+    filepath = os.path.join('reports', filename)         # ← Changed directory
     
     # Ensure directory exists
-    os.makedirs(os.path.join('data', 'archive'), exist_ok=True)
+    os.makedirs('reports', exist_ok=True)                # ← Changed directory
     
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(html)

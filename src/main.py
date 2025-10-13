@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from collectors.tradfi import get_market_snapshot as get_tradfi
 from collectors.crypto import get_crypto_snapshot as get_crypto
@@ -5,6 +6,10 @@ from collectors.onchain import get_onchain_summary as get_onchain
 from collectors.news import get_financial_news as get_news
 from analyzer import analyze_markets
 from reporter import generate_html_report
+
+
+# Create reports directory if it doesn't exist
+os.makedirs("reports", exist_ok=True)
 
 def collect_all_data():
     """Run all data collectors"""
