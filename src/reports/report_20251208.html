@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markets Report - December 08, 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #333;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .timestamp {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .markets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .markets-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .market-panel {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+        }
+        
+        .market-panel h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .tradfi-title {
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+        
+        .crypto-title {
+            border-left: 4px solid #f093fb;
+            padding-left: 15px;
+        }
+        
+        .data-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .data-row:last-child {
+            border-bottom: none;
+        }
+        
+        .data-label {
+            font-weight: 500;
+            color: #aaa;
+        }
+        
+        .data-value {
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .positive {
+            color: #4ade80;
+        }
+        
+        .negative {
+            color: #f87171;
+        }
+        
+        .analysis-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .analysis-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .analysis-content {
+            color: #d0d0d0;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+        
+        .analysis-content h3 {
+            color: #667eea;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .analysis-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .analysis-content li {
+            margin-bottom: 8px;
+        }
+        
+        .meta-story {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .news-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .news-section h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .news-item {
+            padding: 15px;
+            border-left: 3px solid #555;
+            margin-bottom: 15px;
+            background: #0f0f0f;
+            border-radius: 4px;
+        }
+        
+        .news-source {
+            color: #888;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+        
+        .news-title {
+            color: #e0e0e0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #666;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+        
+        .archive-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        
+        .archive-link:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE MARKETS REPORT</h1>
+            <p class="timestamp">December 08, 2025 • Generated at 11:23 AM</p>
+        </header>
+        
+        <div class="markets-grid">
+            <!-- TradFi Panel -->
+            <div class="market-panel">
+                <h2 class="tradfi-title">Traditional Markets</h2>
+                
+                <div class="data-row">
+                    <span class="data-label">S&P 500</span>
+                    <span class="data-value positive">
+                        $6870.40 
+                        (+0.19%)
+                    </span>
+                </div>
+                
+                <div class="data-row">
+                    <span class="data-label">Nasdaq</span>
+                    <span class="data-value positive">
+                        $23578.13 
+                        (+0.31%)
+                    </span>
+                </div>
+                
+                <div class="data-row">
+                    <span class="data-label">Dow Jones</span>
+                    <span class="data-value positive">
+                        $47954.99 
+                        (+0.22%)
+                    </span>
+                </div>
+                
+                <div class="data-row">
+                    <span class="data-label">VIX</span>
+                    <span class="data-value positive">
+                        $16.28 
+                        (+5.65%)
+                    </span>
+                </div>
+                
+                <div class="data-row">
+                    <span class="data-label">10Y Treasury</span>
+                    <span class="data-value positive">
+                        $4.14 
+                        (+0.75%)
+                    </span>
+                </div>
+                
+            </div>
+            
+            <!-- Crypto Panel -->
+            <div class="market-panel">
+                <h2 class="crypto-title">Crypto Markets</h2>
+                
+                
+                <div class="data-row">
+                    <span class="data-label">Bitcoin</span>
+                    <span class="data-value positive">
+                        $92,140.00
+                        (+3.22%)
+                    </span>
+                </div>
+                
+                
+                
+                <div class="data-row">
+                    <span class="data-label">Ethereum</span>
+                    <span class="data-value positive">
+                        $3,162.48
+                        (+4.05%)
+                    </span>
+                </div>
+                
+                
+                
+                <div class="data-row">
+                    <span class="data-label">Solana</span>
+                    <span class="data-value positive">
+                        $138.91
+                        (+4.91%)
+                    </span>
+                </div>
+                
+                
+                
+                <div class="data-row">
+                    <span class="data-label">Cardano</span>
+                    <span class="data-value positive">
+                        $0.43
+                        (+4.16%)
+                    </span>
+                </div>
+                
+                
+                
+                <div class="data-row">
+                    <span class="data-label">Polkadot</span>
+                    <span class="data-value positive">
+                        $2.14
+                        (+2.15%)
+                    </span>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        <!-- AI Analysis -->
+        <div class="analysis-section">
+            <h2>📊 AI Market Analysis</h2>
+            <div class="analysis-content">
+                <p><strong>TODAY'S HEADLINE</strong>
+Markets are inching up, but it feels like they're just trying to keep up appearances while the VIX is having a moment.</p>
+<p><strong>TRADITIONAL MARKETS</strong>
+The S&amp;P 500, Nasdaq, and Dow Jones all managed to squeeze out slight gains today, but let’s not confuse this with genuine bullish momentum. The VIX spiked over 5%, signaling that traders are feeling jittery about future volatility—hardly a sign of confidence. Meanwhile, the 10-year Treasury yield is creeping up, suggesting that investors are bracing for interest rate hikes. It’s a classic case of "let’s pretend everything’s fine" while the underlying fears simmer just beneath the surface.</p>
+<p><strong>CRYPTO MARKETS</strong><br />
+In the crypto realm, it's all sunshine and rainbows as Bitcoin and Ethereum both climbed, shrugging off the traditional market's malaise. Bitcoin's up over 3%, while Ethereum's enjoying a 4% rise, as if they’re on a different planet entirely. The volume suggests that traders are still active, but one must wonder if they’re simply ignoring the clouds forming in traditional markets. The bullish sentiment here is as clear as day, even if it’s not tethered to any broader economic reality.</p>
+<p><strong>THE SPLIT</strong>
+There’s a glaring disconnect between traditional markets and crypto today. While the stock indices are tiptoeing around uncertainty, cryptocurrencies are charging ahead, seemingly immune to the fears plaguing equities. This divergence isn’t just curious; it’s a stark reminder that crypto can sometimes live in its own bubble, blissfully unaware of the chaos outside.</p>
+<p><strong>TOMORROW'S TELLS</strong>
+Keep an eye on the VIX—if it continues to rise, it may force traditional markets to reconsider their sunny disposition. Also, watch the Treasury yields: if they keep climbing, expect some panic selling as investors reassess their risk appetite. In crypto, any dip in volume could signal a shift in sentiment, so monitor trading patterns closely.</p>
+            </div>
+        </div>
+        
+        <!-- News Headlines -->
+        
+        
+        <footer>
+            <p>Automated market analysis powered by AI</p>
+            <a href="https://github.com/JPMendenhall/markets-report/tree/main/src/reports" target="_blank" class="archive-link">View Archive</a>
+        </footer>
+    </div>
+</body>
+</html>
